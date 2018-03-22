@@ -1,0 +1,32 @@
+Challenge
+
+Description
+We want you to create an Angular Application with given API endpoints that
+users may able to login and list, create, edit users.
+• User may able to login system. If user has valid, they can reach other
+pages.
+• Anonymous user is not able to do any operation except login.
+• Certain user may able to list Users with Bootstrap Cards.
+• Certain user may able to create new users.
+• Certain user may able to get users details and edit users.
+• Angular application may able to notify certain user for each successful API
+responses.
+
+For API Details: https://reqres.in
+
+Bonus
+• Usage of Less or Sass to improve your front-end CSS workflow.
+
+Requirements
+What we are going to look for:
+• Solution Structure
+• Separation of Concerns
+• Usage of Angular. Please use latest version. Check angular.io
+• Usage of Bootstrap. Please use latest version Bootstrap 4
+• Coding Conventions
+Resources
+• https://angular.io/
+• https://getbootstrap.com/
+• https://getbootstrap.com/docs/4.0/components/card/
+Please share your source code within a name_surname.zip zip file or your
+concerns about the challenge to hr@ovidos.com
