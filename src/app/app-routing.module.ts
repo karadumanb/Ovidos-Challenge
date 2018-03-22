@@ -1,8 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-
-import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
@@ -11,26 +9,21 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AppRoutingModule } from './/app-routing.module';
 
+const routes: Routes = [
+  {path: '', component: DashboardComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'adduser', component: AddUserComponent},
+  {path: 'user/:id', component: UserDetailsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '**', component: NotFoundComponent}
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    DashboardComponent,
-    UsersComponent,
-    SidebarComponent,
-    AddUserComponent,
-    UserDetailsComponent,
-    LoginComponent,
-    NotFoundComponent
-  ],
+  exports: [RouterModule],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: []
 })
-export class AppModule { }
+export class AppRoutingModule { }
