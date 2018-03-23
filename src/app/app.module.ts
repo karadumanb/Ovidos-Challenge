@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { UsersComponent } from './components/users/users.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
@@ -20,7 +19,6 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    UsersComponent,
     SidebarComponent,
     AddUserComponent,
     UserDetailsComponent,

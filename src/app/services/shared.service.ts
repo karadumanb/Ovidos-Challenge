@@ -12,7 +12,7 @@ export class SharedService {
   get(endpoint): Observable<any> {
     const headers = new HttpHeaders()
         .set('Content-Type', 'application/json');
-    return this.http.get(this.apiUrl + endpoint);
+    return this.http.get(this.apiUrl + endpoint, { headers });
   }
 
   post(endpoint, body): Observable<any> {
@@ -21,11 +21,27 @@ export class SharedService {
     return this.http.post(this.apiUrl + endpoint,  body, { headers });
   }
 
+  delete(endpoint, id: string): any {
+    return this.http.delete(this.apiUrl + endpoint + '/' + id);
+  }
+
+  edit(user: User): any {
+    return this.http.put(this.apiUrl, user);
+  }
+
   getUsers() {
     return this.get('/api/users?page=2');
   }
 
   createUser(body) {
     return this.post('/api/users', body);
+  }
+
+  deleteUser(id) {
+    return this.delete("/api/users", id);
+  }
+
+  editUser(user) {
+    return this.edit(user);
   }
 }

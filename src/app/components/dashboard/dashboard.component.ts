@@ -11,12 +11,15 @@ export class DashboardComponent implements OnInit {
     "name": "baturay",
     "job": "developer"
   }
+  users: User[] = [];
 
   constructor(public shared: SharedService) { }
 
   ngOnInit() {
-    this.shared.getUsers().subscribe(data => {
-      console.log(data)
+    this.shared.getUsers().subscribe(res => {
+     this.users = res.data;
+    }, err => {
+      console.log(err);
     });
   }
 
@@ -24,6 +27,8 @@ export class DashboardComponent implements OnInit {
     console.log("here");
     this.shared.createUser(this.myUser).subscribe(data => {
       console.log(data);
+    }, err => {
+      console.log(err);
     })
   }
 
