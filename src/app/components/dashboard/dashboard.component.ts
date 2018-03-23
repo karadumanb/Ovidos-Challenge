@@ -23,13 +23,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  postUser() {
-    console.log("here");
-    this.shared.createUser(this.myUser).subscribe(data => {
-      console.log(data);
+  deleteUser(user){
+    this.shared.deleteUser(user.id).subscribe(res=> {
+      console.log(res);
     }, err => {
       console.log(err);
     })
+  }
+
+  editUser(user) {
+    this.shared.editingUser = user;
   }
 
 }

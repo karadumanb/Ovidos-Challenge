@@ -2,10 +2,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+declare var $ :any;
 
 @Injectable()
 export class SharedService {
   apiUrl = 'https://reqres.in';
+  editingUser: User = {
+    first_name : "",
+    last_name: "",
+    avatar: ""
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -38,10 +44,41 @@ export class SharedService {
   }
 
   deleteUser(id) {
-    return this.delete("/api/users", id);
+    if(confirm("Are you sure to delete user permanently from database?")){
+      return this.delete("/api/users", id);
+    }
   }
 
   editUser(user) {
     return this.edit(user);
+  }
+
+  accord($event) {
+    let isActive = $event.target.classList.contains("active");
+    let isEdit = $event.target.classList.contains("edit-user");
+    if($event.target.classList.contains("accordion")){
+      let acc = document.getElementsByClassName('accordion');
+      for(let i = 0; i<acc.length; i++){
+        if(acc[i].classList.contains("active")){
+          acc[i].classList.remove("active");
+          let theElement = acc[i].nextElementSibling as HTMLElement;
+          theElement.style.maxHeight = null;
+        }
+      }
+      if(!isActive){
+        $event.target.classList.add("active");
+        let openPx = $event.target.nextElementSibling.scrollHeight;
+        $('.active + .panel').css('max-height', openPx + 'px');
+      }
+    }
+    if(isEdit) {
+      console.log("here");
+      let userEdit = document.getElementsByClassName('edit');
+      if(!userEdit[0].classList.contains("active")){
+        userEdit[0].classList.add("active");
+        let openPx = userEdit[0].nextElementSibling.scrollHeight;
+        $('.active + .panel').css('max-height', openPx + 'px');
+      }
+    }
   }
 }

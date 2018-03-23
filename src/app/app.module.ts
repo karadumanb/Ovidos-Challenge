@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,6 +13,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SharedService } from './services/shared.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,15 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
     AddUserComponent,
     UserDetailsComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

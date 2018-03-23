@@ -4,3 +4,143 @@
     -webkit-box-shadow: 3px 3px 5px #ccc;
     box-shadow:         3px 3px 5px #ccc;
 }
+
+  /*    FOOTER   */
+  footer {
+    background-color: rgb(75, 89, 145);
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  footer ul li {
+    display: inline-block;
+    margin-top: 10px;
+
+  }
+
+  footer ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer .infos li:not(:last-child){
+      margin-right: 30px;
+  }
+
+  footer a:link,
+  footer a:visited {
+    color: darkblue;
+    text-decoration: none;
+  }
+
+  footer a:hover,
+  footer a:active {
+    color: deepskyblue;
+  }
+
+  footer .copy-right {
+    text-align: center;
+  }
+
+  @media (max-width: 600px){
+    footer {
+      display: none!important;
+    }
+  }
+
+  @media (max-width: 750px){
+    footer ul li{
+      margin-right: 10px;
+    }
+  }
+
+  /*    ACCORDION   */
+  .accordion:after {
+    content: '\002B';
+    color: darkblue;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion.active:after {
+    content: "\2212";
+}
+.panel {
+  padding: 0 18px;
+  background-color: rgba(135, 207, 235, 0.548);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  box-shadow: 3px 3px 5px #ccc;
+}
+
+.accordion {
+  background-color: #eee;
+  color: skyblue;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion.active, .accordion:hover {
+  background-color: blue;
+}
+
+#accordion .fa{
+  margin: 0 10px 10px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  float: right;
+  box-shadow: 3px 3px 5px #ccc;
+}
+
+#accordion .fa-close {
+  color: red;
+  border: 1px solid darkred;
+}
+#accordion .fa-share {
+  color: green;
+  border: 1px solid green;
+}
+
+#accordion input {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+  /* USER OPTIONS */
+  .user-options div{
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(204, 203, 203, 0.404);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #ccc;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+  }
+
+  .see-user a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .see-user a{
+    color: black;
+    font-weight: 600;
+  }
+  
+  .user-options div:hover {
+    background-color: rgba(155, 154, 154, 0.719);
+    box-shadow: 6px 6px 8px #ccc;
+  }

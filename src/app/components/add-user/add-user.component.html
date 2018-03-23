@@ -1,3 +1,19 @@
-<p>
-  add-user works!
-</p>
+<div id="accordion" (click)="shared.accord($event)">
+    <button class="accordion add">Add User</button>
+    <div class="panel">
+        <h2 style="margin: 20px auto;">Fill out the blanks</h2>
+        <input type="text" name="name" id="name" class="name" [(ngModel)]="newUser.name" placeholder="Type the name...">
+        <input type="text" name="job" id="job" class="job" [(ngModel)]="newUser.job" placeholder="Type the job...">
+    <div class="fa fa-close" (click)="deleteUser()"></div>
+    <div class="fa fa-share" (click)="postUser()"></div>
+    </div>
+    <button class="accordion edit">Edit User</button>
+    <div class="panel">
+        <h2 style="margin: 20px auto;">Click to a user and edit it</h2>
+        <input type="text" name="first_name" id="first_name" class="first_name" [(ngModel)]="shared.editingUser.first_name" placeholder="First Name">
+        <input type="text" name="last_name" id="last_name" class="last_name" [(ngModel)]="shared.editingUser.last_name" placeholder="Last Name">
+        <input type="text" name="avatar" id="avatar" class="avatar" [(ngModel)]="shared.editingUser.avatar" placeholder="Avatar Url">
+    <div class="fa fa-close" (click)="shared.deleteUser(shared.editingUser.id)"></div>
+    <div class="fa fa-share" (click)="shared.editUser(shared.editingUser)"></div>
+    </div>
+</div>
