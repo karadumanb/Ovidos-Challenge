@@ -25,9 +25,9 @@ export class DashboardComponent implements OnInit {
 
   deleteUser(user){
     this.shared.deleteUser(user.id).subscribe(res=> {
-      console.log(res);
+      console.log(res, "success");
     }, err => {
-      console.log(err);
+      console.log(err, "error");
     })
   }
 

@@ -32,4 +32,12 @@ export class AddUserComponent implements OnInit {
       console.log(err);
     })
   }
+
+  editUser() {
+    this.shared.editUser(this.shared.editingUser).subscribe(res => {
+      console.log('Update Succesful')
+    }, err => {
+      console.error('Update Unsuccesful')
+    })
+  }
 }

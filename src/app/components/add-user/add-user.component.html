@@ -14,6 +14,6 @@
         <input type="text" name="last_name" id="last_name" class="last_name" [(ngModel)]="shared.editingUser.last_name" placeholder="Last Name">
         <input type="text" name="avatar" id="avatar" class="avatar" [(ngModel)]="shared.editingUser.avatar" placeholder="Avatar Url">
     <div class="fa fa-close" (click)="shared.deleteUser(shared.editingUser.id)"></div>
-    <div class="fa fa-share" (click)="shared.editUser(shared.editingUser)"></div>
+    <div class="fa fa-share" (click)="editUser()"></div>
     </div>
 </div>

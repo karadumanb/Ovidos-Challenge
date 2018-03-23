@@ -28,11 +28,11 @@ export class SharedService {
   }
 
   delete(endpoint, id: string): any {
-    return this.http.delete(this.apiUrl + endpoint + '/' + id);
+    return this.http.delete(this.apiUrl + endpoint + id);
   }
 
   edit(user: User): any {
-    return this.http.put(this.apiUrl, user);
+    return this.http.put(this.apiUrl + "/api/users/" + user.id, user);
   }
 
   getUsers() {
@@ -45,7 +45,7 @@ export class SharedService {
 
   deleteUser(id) {
     if(confirm("Are you sure to delete user permanently from database?")){
-      return this.delete("/api/users", id);
+      return this.delete("/api/users/", id);
     }
   }
 
