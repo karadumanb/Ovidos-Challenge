@@ -2,15 +2,15 @@
     <h3>USERS</h3>
     <div class="card card-header small-header" *ngFor="let user of users">
         <div class="card card-body mb-3">
-            <div class="row">
+            <div class="row users">
                 <div class="col-md-3">
                     <img src="{{user.avatar}}" alt="Picture not found" class="profil-pic">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 users-name">
                     <h4>{{user.first_name}} {{user.last_name}}</h4>
                 </div>
                 <div class="col-md-3 user-options">
-                    <div class="see-user"><a href="">SEE THE USER</a></div>
+                    <div class="see-user"><a routerLink="/user/{{user.id}}">SEE THE USER</a></div>
                     <div class="fa fa-pencil edit-user" (click)="shared.accord($event); editUser(user)"> Edit User</div>
                     <div class="fa fa-close delete-user" (click)="deleteUser(user)"> Delete User</div>
                 </div>

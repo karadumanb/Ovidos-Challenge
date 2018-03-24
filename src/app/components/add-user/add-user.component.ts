@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/User';
 import { SharedService } from '../../services/shared.service';
+declare var $ :any;
 
 @Component({
   selector: 'app-add-user',
@@ -39,5 +40,26 @@ export class AddUserComponent implements OnInit {
     }, err => {
       console.error('Update Unsuccesful')
     })
+    this.disableInput();
+  }
+
+  deleteEditingUser() {
+    if(confirm("Are you sure to delete the user being edited?")) {
+      this.disableInput();   
+    }
+  }
+
+  disableInput() {
+    $('.panel-edit input').each(function() {
+      $(this).attr({
+          'disabled': 'disabled'
+      });
+    });
+    this.shared.editingUser = {
+      first_name : "",
+      last_name: "",
+      avatar: "",
+      id: null
+    } 
   }
 }

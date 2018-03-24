@@ -13,7 +13,8 @@ import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
-  {path: 'contact/:id', component: UserDetailsComponent},
+  {path: 'user/:id', component: UserDetailsComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: NotFoundComponent}
 ];

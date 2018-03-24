@@ -144,3 +144,48 @@
     background-color: rgba(155, 154, 154, 0.719);
     box-shadow: 6px 6px 8px #ccc;
   }
+
+  /* Dashboard Cards */
+
+  .users-name {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+  }
+
+
+  @media (max-width: 767px) {
+    .users div:first-child {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 969px) {
+    .users-name h4 {
+      margin: 10px auto;
+    }
+  }
+
+  @media (max-width: 969px) and (min-width: 767px){
+    .users img{
+      margin-top: 75%;
+    }
+  }
+
+  .detail-name h4 {
+    margin: 20px auto;
+  }
+
+  .detail-image {
+    text-align: center;
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+  }

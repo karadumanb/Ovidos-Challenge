@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { User } from '../../models/User';
+declare var $ :any;
 
 @Component({
   selector: 'app-dashboard',
@@ -33,6 +34,9 @@ export class DashboardComponent implements OnInit {
 
   editUser(user) {
     this.shared.editingUser = user;
+    $('.panel-edit input').each(function() {
+          $(this).removeAttr('disabled');
+    });
   }
 
 }

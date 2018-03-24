@@ -10,7 +10,8 @@ export class SharedService {
   editingUser: User = {
     first_name : "",
     last_name: "",
-    avatar: ""
+    avatar: "",
+    id: null
   }
 
   constructor(private http: HttpClient) { }

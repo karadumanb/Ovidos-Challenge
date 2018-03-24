@@ -1,3 +1,70 @@
-<p>
-  contact works!
-</p>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form card card-header" id="contact-form">
+      <h2 class="card card-header" style="margin-bottom: 20px; text-align: center; color: darkblue;">CONTACT ME!</h2>
+      <div class="form-group">
+        <label for="name">Your Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control card card-group"
+          placeholder="Type your email"
+          #formName="ngModel"
+          [ngClass]="{'is-invalid':formName.errors && formName.touched}"
+          [(ngModel)]="name"
+          minlength="2"
+          required
+        >
+        <div [hidden]="!formName.errors?.required"  class="invalid-feedback">
+          You have type your name
+        </div>
+        <div [hidden]="!formName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control card card-group"
+          placeholder="Type your email address"
+          #formEmail="ngModel"
+          [ngClass]="{'is-invalid':formEmail.errors && formEmail.touched}"
+          [(ngModel)]="email"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        >
+        <div [hidden]="!formEmail.errors?.required" class="invalid-feedback">
+          Email required
+        </div>
+        <div [hidden]="!formEmail.errors?.pattern" class="invalid-feedback">
+          Email is not valid
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="comment">What would you like to say:</label><br>
+        <textarea class="form-control card card-group"
+                  name="comment"
+                  id="comment"
+                  form="contact-form"
+                  rows="4"
+                  #formComment="ngModel"
+                  [ngClass]="{'is-invalid':formComment.errors && formComment.touched}"
+                  [(ngModel)]="comment"
+                  minlength="20"
+                  required>Enter text here...</textarea>
+        <div [hidden]="!formComment.errors?.required"  class="invalid-feedback">
+          You have type your name
+        </div>
+        <div [hidden]="!formComment.errors?.minlength" class="invalid-feedback">
+          Must be at least 20 characters
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 50%; margin-left: 25%;">Submit!</button>
+    </form>
+    <img src="../../../assets/contact.jpg" alt="Contacts" class="card-img">
+  </div>
+</div>
