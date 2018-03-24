@@ -11,6 +11,10 @@ export class AuthGuard implements CanActivate {
         public auth: AuthService
     ) {}
 
+    /*
+    canActivate her root için çağırılıyor, authservice'teki isAuthenticated fonksiyonuna
+    bakarak eğer token alınabilmişse bizi logged in ediyor alınamamışsa login sayfasında kalıyoruz.
+    */
     canActivate(): boolean {
         if (!this.auth.isAuthenticated()) {
           this.shared.isLoggedin = false;

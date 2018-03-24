@@ -21,6 +21,7 @@ export class AuthService {
     return (token.length > 0);
   }
 
+  //login sayfasında submit edince shared servisteki http post isteğini gönderiyoruz
   login(email: string, password: string) {
     let user = {
       email: email,

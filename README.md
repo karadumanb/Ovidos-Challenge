@@ -1,3 +1,20 @@
+# Yapılması gerekenler
+Angular cli 1.7.3 ile Angular 5.2.5 versiyonlarını kullandım. Biraz daha eski versiyonlarında bir hata olacağını düşünmüyorum.
+
+1) git clone https://github.com/karadumanb/Ovidos-Challenge.git
+2) cd Ovisdos-Challenge
+3) npm install
+4) ng serve
+
+Login olabilmeniz için mail: baturay@karaduman password: 1234
+
+***ÖNEMLİ: reqres.in post, put veya delete ettiğimiz verileri database tarafında değiştirmediği için başarılı istekler yapmamıza rağmen görüntüde veriler silinmeyebilir. Eğer reqres.in böyle bir şeye imkan sağlıyorsa beni yönlendirebilirsiniz.
+
+İlginiz için teşekkürler.
+
+Baturay Serhat KARADUMAN
+karadumanbaturay@gmail.com
+---------------------------------------------------------------------------------------------------
 # OvidosChallenge
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.

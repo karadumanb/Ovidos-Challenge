@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.email, this.password);
+    //burada mecburen kafamdan bir email ile password uydurmak zorunda kaldım
+    //çünkü reqres.in her türlü mail ile password'e olumlu yanıt dönüyor
     if(this.email === "baturay@karaduman" && this.password === "1234"){
       this.authService.login(this.email, this.password).subscribe(res=>{
         console.log(res);
