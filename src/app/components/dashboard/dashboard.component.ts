@@ -27,13 +27,16 @@ export class DashboardComponent implements OnInit {
   deleteUser(user){
     this.shared.deleteUser(user.id).subscribe(res=> {
       console.log(res, "success");
+      this.shared.message("THE USER HAS BEEN REMOVED!", "alert-success", 4000);
     }, err => {
       console.log(err, "error");
+      this.shared.message("THE USER COULD NOT BE REMOVED!", "alert-danger", 4000);
     })
   }
 
   editUser(user) {
     this.shared.editingUser = user;
+    this.shared.editingOn = true;
     $('.panel-edit input').each(function() {
           $(this).removeAttr('disabled');
     });

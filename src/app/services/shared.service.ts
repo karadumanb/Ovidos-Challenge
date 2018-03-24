@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FlashMessagesService } from 'angular2-flash-messages';
 declare var $ :any;
 
 @Injectable()
@@ -13,8 +14,9 @@ export class SharedService {
     avatar: "",
     id: null
   }
+  editingOn: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private flashMessage: FlashMessagesService) { }
 
   get(endpoint): Observable<any> {
     const headers = new HttpHeaders()
@@ -81,5 +83,11 @@ export class SharedService {
         $('.active + .panel').css('max-height', openPx + 'px');
       }
     }
+  }
+
+  message(msg:string, type:string, time:number) {
+    this.flashMessage.show(msg, {
+      cssClass: type, timeout: time
+    });
   }
 }
