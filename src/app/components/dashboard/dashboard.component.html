@@ -10,7 +10,7 @@
                     <h4>{{user.first_name}} {{user.last_name}}</h4>
                 </div>
                 <div class="col-md-3 user-options">
-                    <div class="see-user"><a routerLink="/user/{{user.id}}">SEE THE USER</a></div>
+                    <a routerLink="/user/{{user.id}}"><div class="see-user">SEE THE USER</div></a>
                     <div class="fa fa-pencil edit-user" (click)="shared.accord($event); editUser(user)"> Edit User</div>
                     <div class="fa fa-close delete-user" (click)="deleteUser(user)"> Delete User</div>
                 </div>

@@ -10,7 +10,6 @@
                   <h4>{{user.first_name}} {{user.last_name}}</h4>
               </div>
               <div class="col-md-12 user-options">
-                  <div class="see-user"><a routerLink="/user/{{user.id}}">SEE THE USER</a></div>
                   <div class="fa fa-pencil edit-user" (click)="shared.accord($event); editUser(user)"> Edit User</div>
                   <div class="fa fa-close delete-user" (click)="deleteUser(user)"> Delete User</div>
               </div>
@@ -18,3 +17,11 @@
       </div>
   </div>
 </div>
+<div class="row card card-header my-cards">
+    <h3>OTHER USERS</h3>
+    <div class="col-md-12 card"  *ngFor="let otheruser of users">
+        <div class="card-body mb-3 other-users" routerLink="/user/{{otheruser.id}}" *ngIf="otheruser.id != user.id">
+         <img src="{{otheruser.avatar}}" alt="Picture not found" class="profil-pic"> <span class="ml-4">{{otheruser.first_name}} {{otheruser.last_name}}</span>
+        </div>
+    </div>
+  </div>

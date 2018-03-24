@@ -36,9 +36,9 @@ export class AddUserComponent implements OnInit {
 
   editUser() {
     this.shared.editUser(this.shared.editingUser).subscribe(res => {
-      console.log('Update Succesful')
+      console.log(res)
     }, err => {
-      console.error('Update Unsuccesful')
+      console.error(err)
     })
     this.disableInput();
   }

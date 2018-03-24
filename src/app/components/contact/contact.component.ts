@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
-  
+
   @ViewChild('contactForm') form: any;
 
   constructor() { }
@@ -14,7 +14,12 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit({value, valid}: {value: any, valid: boolean}){
-    console.log(value);
-    console.log(valid);
+    if(valid){
+      let ebody = value.name + ' has comment for you:\r\n' + value.comment + '\r\n\r\nThank you for your project.\r\n\r\n' + value.name.toUpperCase();
+      ebody = encodeURIComponent(ebody);
+      location.href = 'mailto:karadumanbaturay@gmail.com' +'?subject='+value.subject+'&body=' + ebody;
+    } else {
+      alert("Fill out the form correctly!")
+    }
   }
 }

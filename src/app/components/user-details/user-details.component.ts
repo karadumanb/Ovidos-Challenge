@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { User } from '../../models/User';
+import { ActivatedRoute } from '@angular/router';
 declare var $ :any;
 
 @Component({
@@ -14,11 +15,20 @@ export class UserDetailsComponent implements OnInit {
     avatar:"",
     id:null
   };
-  constructor(public shared: SharedService) { }
+  users: User[] = [];
+  constructor(public shared: SharedService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.shared.get("/api/users/2").subscribe(res => {
-      this.user = res.data;
+    this.route.params.subscribe(params => {
+      this.user.id = params['id'];
+      this.shared.get("/api/users/" + this.user.id).subscribe(res => {
+        this.user = res.data;
+      }, err => {
+        console.log(err);
+      });
+    });
+    this.shared.getUsers().subscribe(res => {
+      this.users = res.data;
      }, err => {
        console.log(err);
      });

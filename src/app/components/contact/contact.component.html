@@ -4,44 +4,45 @@
     <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form card card-header" id="contact-form">
       <h2 class="card card-header" style="margin-bottom: 20px; text-align: center; color: darkblue;">CONTACT ME!</h2>
       <div class="form-group">
-        <label for="name">Your Name:</label>
+        <label for="subject">Subject:</label>
         <input
           type="text"
+          name="subject"
+          id="subject"
+          class="form-control card card-group"
+          placeholder="Type your subject"
+          #formSubject="ngModel"
+          [ngClass]="{'is-invalid':formSubject.errors && formSubject.touched}"
+          [(ngModel)]="subject"
+          minlength="3"
+          required
+        >
+        <div [hidden]="!formSubject.errors?.required"  class="invalid-feedback">
+          You have type subject
+        </div>
+        <div [hidden]="!formSubject.errors?.minlength" class="invalid-feedback">
+          Must be at least 3 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="name"
           name="name"
           id="name"
           class="form-control card card-group"
-          placeholder="Type your email"
+          placeholder="Type your name"
           #formName="ngModel"
           [ngClass]="{'is-invalid':formName.errors && formName.touched}"
           [(ngModel)]="name"
           minlength="2"
           required
         >
-        <div [hidden]="!formName.errors?.required"  class="invalid-feedback">
-          You have type your name
+        <div [hidden]="!formName.errors?.required" class="invalid-feedback">
+            You have type your name
         </div>
         <div [hidden]="!formName.errors?.minlength" class="invalid-feedback">
-          Must be at least 2 characters
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          class="form-control card card-group"
-          placeholder="Type your email address"
-          #formEmail="ngModel"
-          [ngClass]="{'is-invalid':formEmail.errors && formEmail.touched}"
-          [(ngModel)]="email"
-          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-        >
-        <div [hidden]="!formEmail.errors?.required" class="invalid-feedback">
-          Email required
-        </div>
-        <div [hidden]="!formEmail.errors?.pattern" class="invalid-feedback">
-          Email is not valid
+            Must be at least 2 characters
         </div>
       </div>
       <div class="form-group">
@@ -51,20 +52,28 @@
                   id="comment"
                   form="contact-form"
                   rows="4"
+                  placeholder="Your comment"
                   #formComment="ngModel"
                   [ngClass]="{'is-invalid':formComment.errors && formComment.touched}"
                   [(ngModel)]="comment"
-                  minlength="20"
+                  minlength="10"
                   required>Enter text here...</textarea>
         <div [hidden]="!formComment.errors?.required"  class="invalid-feedback">
-          You have type your name
+          You have type your comment
         </div>
         <div [hidden]="!formComment.errors?.minlength" class="invalid-feedback">
-          Must be at least 20 characters
+          Must be at least 10 characters
         </div>
       </div>
       <button type="submit" class="btn btn-primary" style="width: 50%; margin-left: 25%;">Submit!</button>
     </form>
     <img src="../../../assets/contact.jpg" alt="Contacts" class="card-img">
+  </div>
+</div>
+<div class="card my-contact-info">
+  <div class="card-body">
+      <h3>Baturay Serhat KARADUMAN</h3>
+      <p>Email: karadumanbaturay@gmail.com</p>
+      <p>Mobile: 05395027406</p>
   </div>
 </div>

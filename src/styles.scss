@@ -130,15 +130,11 @@
     font-weight: 600;
   }
 
-  .see-user a:hover {
+  .user-options a:hover {
     text-decoration: none;
     color: black;
   }
-  
-  .see-user a{
-    color: black;
-    font-weight: 600;
-  }
+
   
   .user-options div:hover {
     background-color: rgba(155, 154, 154, 0.719);
@@ -188,4 +184,14 @@
 
   input:disabled {
     cursor: not-allowed;
+  }
+
+  .other-users {
+    padding: 0;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  .other-users:hover {
+    background-color: rgba(158, 157, 157, 0.459);
   }
