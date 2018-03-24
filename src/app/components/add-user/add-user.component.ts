@@ -32,6 +32,10 @@ export class AddUserComponent implements OnInit {
   postUser() {
     this.shared.createUser(this.newUser).subscribe(data => {
       console.log(data);
+      this.newUser = {
+        name: "",
+        job: ""
+      };
       this.shared.message("NEW HAS BEEN SUCCESSFULLY ADDED. CHECK THE CONSOLE FOR THE RESPONSE!", "alert-success", 5000);
     }, err => {
       console.log(err);

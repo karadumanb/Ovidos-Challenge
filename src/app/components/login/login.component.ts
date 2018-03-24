@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     //çünkü reqres.in her türlü mail ile password'e olumlu yanıt dönüyor
     if(this.email === "baturay@karaduman" && this.password === "1234"){
       this.authService.login(this.email, this.password).subscribe(res=>{
-        console.log(res);
         localStorage.setItem('token', JSON.stringify(res.token));
         this.shared.message("You are now logged in", "alert-success", 4000);
         this.router.navigate(['/']);
