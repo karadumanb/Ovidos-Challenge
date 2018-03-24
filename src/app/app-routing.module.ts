@@ -8,15 +8,16 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LoginComponent } from './components/login/login.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'user/:id', component: UserDetailsComponent},
-  {path: 'contact', component: ContactComponent},
+  {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
@@ -24,6 +25,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  declarations: []
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

@@ -1,4 +1,4 @@
-<div id="accordion" (click)="shared.accord($event)">
+<div id="accordion" (click)="shared.accord($event)" *ngIf = "shared.isLoggedin">
     <button class="accordion add">Add User</button>
     <div class="panel panel-add">
         <h2 style="margin: 20px auto;">Fill out the blanks</h2>
@@ -9,7 +9,7 @@
     </div>
     <button class="accordion edit">Edit User</button>
     <div class="panel panel-edit">
-        <h2 style="margin: 20px auto;">Click to a user and edit it</h2>
+        <h2 style="margin: 20px auto;">Click to a edit user and edit it</h2>
         <input type="text" name="first_name" id="first_name" class="first_name" [(ngModel)]="shared.editingUser.first_name" placeholder="First Name" disabled>
         <input type="text" name="last_name" id="last_name" class="last_name" [(ngModel)]="shared.editingUser.last_name" placeholder="Last Name" disabled>
         <input type="text" name="avatar" id="avatar" class="avatar" [(ngModel)]="shared.editingUser.avatar" placeholder="Avatar Url" disabled>

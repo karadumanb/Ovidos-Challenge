@@ -14,8 +14,11 @@
         <li class="users">
           <a routerLink="/contact" class="nav-link">Contact</a>
         </li>
-        <li class="login">
-          <a routerLink="/login" class="nav-link">Login</a>
+        <li class="login" *ngIf = "!shared.isLoggedin">
+            <a routerLink="/login" class="nav-link">Login</a>
+          </li>
+        <li class="logout" *ngIf = "shared.isLoggedin">
+          <div (click)="logout()" class="nav-link">Logout</div>
         </li>
       </ul>
     </div>

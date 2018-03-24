@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public shared: SharedService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.shared.isLoggedin = false;
+    this.router.navigate(['login']);
+    this.shared.message('You are logged out', 'alert-success', 4000);
   }
 
 }

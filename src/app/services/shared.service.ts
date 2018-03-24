@@ -15,6 +15,7 @@ export class SharedService {
     id: null
   }
   editingOn: boolean = false;
+  isLoggedin: boolean = false;
 
   constructor(private http: HttpClient, private flashMessage: FlashMessagesService) { }
 
