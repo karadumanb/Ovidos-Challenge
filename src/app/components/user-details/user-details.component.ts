@@ -43,6 +43,7 @@ export class UserDetailsComponent implements OnInit {
   }
   editUser(user) {
     this.shared.editingUser = user;
+    this.shared.editingOn = true;
     $('.panel-edit input').each(function() {
           $(this).removeAttr('disabled');
     });
