@@ -2,11 +2,17 @@ import { Injectable } from '@angular/core';
 import { SharedService } from './shared.service';
 import { Observable } from 'rxjs/Observable';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { CanActivate, Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
 
-  constructor(public shared: SharedService, public jwtHelper: JwtHelperService) { }
+  constructor(private router: Router, public shared: SharedService, public jwtHelper: JwtHelperService) {
+    if(this.isAuthenticated() && this.router.url === '/login'){
+      this.router.navigate(['/']);
+      this.shared.message('You have already logged in!', 'alert-success', 4000);
+    }
+   }
 
   public isAuthenticated(): boolean {
     const token = JSON.parse(localStorage.getItem('token'));
