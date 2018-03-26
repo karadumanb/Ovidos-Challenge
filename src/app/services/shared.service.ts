@@ -76,7 +76,6 @@ export class SharedService {
       }
     }
     if(isEdit) {
-      console.log("here");
       let userEdit = document.getElementsByClassName('edit');
       if(!userEdit[0].classList.contains("active")){
         userEdit[0].classList.add("active");
